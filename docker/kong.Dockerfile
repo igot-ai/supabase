@@ -13,7 +13,8 @@ ENV SUPABASE_ANON_KEY=${ANON_KEY}
 ENV SUPABASE_SERVICE_KEY=${SERVICE_ROLE_KEY}
 ENV DASHBOARD_USERNAME=${DASHBOARD_USERNAME}
 ENV DASHBOARD_PASSWORD=${DASHBOARD_PASSWORD}
-
+RUN addgroup -S kong && adduser -S -g kong kong
+USER kong
 # Copy config file
 COPY ./volumes/api/kong.yml /home/kong/temp.yml
 
