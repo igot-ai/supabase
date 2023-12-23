@@ -59,6 +59,7 @@ RUN set -ex; \
     && kong version
 
 COPY ./volumes/api/kong.entrypoint.sh /docker-entrypoint.sh
+RUN sudo chmod +x /docker-entrypoint.sh
 
 USER kong
 
