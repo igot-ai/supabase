@@ -12,3 +12,6 @@ COPY ./volumes/api/kong.yml /home/kong/temp.yml
 
 # Expose ports
 EXPOSE ${KONG_HTTP_PORT} ${KONG_HTTPS_PORT}
+
+# Generate final config on startup
+ENTRYPOINT ["bash", "-c", "eval \"echo \\\"$$(cat /home/kong/temp.yml)\\\"\" > /home/kong/kong.yml && /docker-entrypoint.sh kong docker-start"]
