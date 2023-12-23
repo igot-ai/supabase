@@ -16,7 +16,6 @@ LABEL name="Kong" \
       description="Next-Generation API Platform for Modern Architectures"
 
 # RedHat required LICENSE file approved path
-COPY LICENSE /licenses/
 
 ARG KONG_SHA256="aace6a1e95f07f0693101b604d7306b55e8ff817437c1fe1c60a6dfea79bdae1"
 
