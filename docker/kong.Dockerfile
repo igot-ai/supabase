@@ -12,6 +12,6 @@ COPY ./volumes/api/kong.yml /home/kong/temp.yml
 
 # Expose ports
 EXPOSE ${KONG_HTTP_PORT} ${KONG_HTTPS_PORT}
-RUN yum install -y gettext && yum clean all && rm -rf /var/cache/yum
+RUN dnf install -y gettext && dnf clean all
 # Generate final config on startup
 ENTRYPOINT ["bash", "-c", "envsubst < /home/kong/temp.yml | tee /home/kong/kong.yml && /docker-entrypoint.sh kong docker-start"]
