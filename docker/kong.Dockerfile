@@ -22,4 +22,4 @@ EXPOSE ${KONG_HTTP_PORT} ${KONG_HTTPS_PORT}
 RUN addgroup -S kong && adduser -S -g kong kong
 USER kong
 # Generate final config on startup
-ENTRYPOINT ["bash", "-c", "eval \"echo \\\"$$(cat /home/kong/temp.yml)\\\"\" > /home/kong/kong.yml && /docker-entrypoint.sh kong docker-start"]
+ENTRYPOINT ["bash", "-c", "envsubst < /home/kong/temp.yml | tee /home/kong/kong.yml && /docker-entrypoint.sh kong docker-start"]
