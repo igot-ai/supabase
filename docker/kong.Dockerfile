@@ -19,7 +19,6 @@ COPY ./volumes/api/kong.yml /home/kong/temp.yml
 
 # Expose ports
 EXPOSE ${KONG_HTTP_PORT} ${KONG_HTTPS_PORT}
-RUN addgroup -S kong && adduser -S -g kong kong
-USER kong
+
 # Generate final config on startup
 ENTRYPOINT ["bash", "-c", "envsubst < /home/kong/temp.yml | tee /home/kong/kong.yml && /docker-entrypoint.sh kong docker-start"]
