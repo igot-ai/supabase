@@ -14,6 +14,7 @@ ENV SUPABASE_SERVICE_KEY=${SERVICE_ROLE_KEY}
 ENV DASHBOARD_USERNAME=${DASHBOARD_USERNAME}
 ENV DASHBOARD_PASSWORD=${DASHBOARD_PASSWORD}
 
+ENTRYPOINT ["bash", "-c", "[add command above to this] && /docker-entrypoint.sh kong docker-start"]
 # Copy config file
 COPY ./volumes/api/kong.yml /home/kong/temp.yml
 
