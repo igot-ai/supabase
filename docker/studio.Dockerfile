@@ -1,2 +1,1 @@
-FROM supabase/postgres-meta:v0.75.0
-
+FROM supabase/studio:20231123-64a766a
