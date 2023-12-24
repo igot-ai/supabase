@@ -1,1 +1,1 @@
-FROM supabase/logflare:1.4.0
+FROM supabase/logflare:1.5.12
