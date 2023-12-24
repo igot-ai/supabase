@@ -1,3 +1,2 @@
-FROM redhat/ubi8
+FROM supabase/postgres-meta:v0.75.0
 
-RUN yum install -y gettext
