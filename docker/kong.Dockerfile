@@ -71,6 +71,5 @@ STOPSIGNAL SIGQUIT
 
 HEALTHCHECK --interval=60s --timeout=10s --retries=10 CMD kong health
 
-CMD ["kong", "migrations", "up"]
 # Generate final config on startup
 ENTRYPOINT ["kong", "docker-start"]
